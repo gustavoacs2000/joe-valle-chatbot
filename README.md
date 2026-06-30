@@ -1,44 +1,36 @@
-# JoeBot — MVP Setup
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Pacotes necessários
+## Getting Started
+
+First, run the development server:
 
 ```bash
-npm install ai @ai-sdk/google
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-> Next.js, React e Tailwind CSS já devem estar no seu projeto.
-> Se estiver criando do zero: `npx create-next-app@latest joebot --typescript --tailwind --app`
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Variável de ambiente
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Crie um arquivo `.env.local` na raiz do projeto:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```
-GOOGLE_GENERATIVE_AI_API_KEY=sua_chave_aqui
-```
+## Learn More
 
-Obtenha a chave gratuitamente em: https://aistudio.google.com/app/apikey
+To learn more about Next.js, take a look at the following resources:
 
-## Estrutura de arquivos
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Copie os dois arquivos gerados para seu projeto Next.js:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-```
-app/
-├── page.tsx              ← Interface do chat (substitua o page.tsx existente)
-└── api/
-    └── chat/
-        └── route.ts      ← API route do JoeBot
-```
+## Deploy on Vercel
 
-## Deploy no Vercel
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-1. Faça o push do projeto para um repositório GitHub.
-2. Acesse vercel.com → New Project → importe o repositório.
-3. Em "Environment Variables", adicione `GOOGLE_GENERATIVE_AI_API_KEY`.
-4. Deploy.
-
-## Modelo usado
-
-`gemini-1.5-flash` — rápido, eficiente e gratuito no tier de desenvolvimento.
-Para produção com mais volume, considere `gemini-1.5-pro`.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
