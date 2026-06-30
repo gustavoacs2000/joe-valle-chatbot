@@ -273,13 +273,19 @@ COMO CONSTRUIR RESPOSTAS EFICAZES
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
-  console.log('API KEY presente:', !!process.env.GOOGLE_GENERATIVE_AI_API_KEY);
+  try {
+    const result = await streamText({
+      model: google('gemini-1.5-flash'),
+      system: SYSTEM_PROMPT,
+      messages,
+    });
 
-  const result = await streamText({
-    model: google('gemini-1.5-flash'),
-    system: SYSTEM_PROMPT,
-    messages,
-  });
-
-  return result.toDataStreamResponse();
+    return result.toDataStreamResponse();
+  } catch (error) {
+    console.error('Erro no streamText:', error);
+    return new Response(JSON.stringify({ error: String(error) }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 }
