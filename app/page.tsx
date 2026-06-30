@@ -1,6 +1,6 @@
 'use client';
 
-import { useChat } from '@ai-sdk/react';
+import { useChat } from 'ai/react';
 import { useEffect, useRef, FormEvent } from 'react';
 
 const WELCOME_MESSAGE = {
