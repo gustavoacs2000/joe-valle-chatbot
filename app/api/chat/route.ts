@@ -280,12 +280,14 @@ export async function POST(req: Request) {
       messages,
     });
 
+    // Captura erros assíncronos dentro da stream
+    result.text.catch((err) => {
+      console.error('Erro real do Gemini:', JSON.stringify(err, null, 2));
+    });
+
     return result.toDataStreamResponse();
   } catch (error) {
-    console.error('Erro no streamText:', error);
-    return new Response(JSON.stringify({ error: String(error) }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    console.error('Erro síncrono:', JSON.stringify(error, null, 2));
+    return new Response('Erro interno', { status: 500 });
   }
 }
