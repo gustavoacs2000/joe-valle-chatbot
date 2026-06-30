@@ -273,6 +273,8 @@ COMO CONSTRUIR RESPOSTAS EFICAZES
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
+  console.log('API KEY presente:', !!process.env.GOOGLE_GENERATIVE_AI_API_KEY);
+
   const result = await streamText({
     model: google('gemini-1.5-flash'),
     system: SYSTEM_PROMPT,
