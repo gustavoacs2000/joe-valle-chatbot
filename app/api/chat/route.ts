@@ -147,7 +147,7 @@ export async function POST(req: Request) {
       'X-Title': 'JoeBot',
     },
     body: JSON.stringify({
-      model: 'liquid/lfm-2.5-1.2b-instruct:free',
+      model: 'meta-llama/llama-3.3-70b-instruct',
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         ...messages,
